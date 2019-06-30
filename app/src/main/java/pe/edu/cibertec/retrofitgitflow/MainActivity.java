@@ -1,6 +1,7 @@
 package pe.edu.cibertec.retrofitgitflow;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,13 +16,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewResult;
+    //private TextView textViewResult;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textViewResult = findViewById(R.id.textViewResult);
+        //textViewResult = findViewById(R.id.textViewResult);
+        recyclerView = findViewById(R.id.recyclerView);
         callService();
     }
 
@@ -41,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(!response.isSuccessful())
                 {
-                    textViewResult.setText("Code: " + response.code());
+                    //textViewResult.setText("Code: " + response.code());
+
                 }
                 else
                 {
@@ -53,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
                         content += "userId: " + post.getUserId() + "\n";
                         content += "Title: " + post.getTitle() + "\n";
                         content += "Body: " + post.getText() + "\n";
-                        textViewResult.append(content);
+                       // textViewResult.append(content);
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                textViewResult.setText(t.getMessage());
+                //textViewResult.setText(t.getMessage());
                 t.printStackTrace();
             }
         });
