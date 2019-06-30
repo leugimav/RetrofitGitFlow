@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //textViewResult = findViewById(R.id.textViewResult);
         recyclerView = findViewById(R.id.recyclerView);
+
         callService();
     }
 
