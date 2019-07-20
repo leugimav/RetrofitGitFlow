@@ -15,14 +15,15 @@ public class PostDetailActivity extends AppCompatActivity implements IPostDetail
 PostPresenter presenter;
     TextView idTextView;
     TextView userIdTextView;
-    TextView userIdTextView2;
-    TextView userIdTextView3;
+    TextView titleTextView;
+    TextView textTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
-        IdTextView = findViewById(R.id.idTextView);
+        idTextView = findViewById(R.id.idTextView);
         userIdTextView = findViewById(R.id.userIdTextView);
+
         int id = getIntent().getIntExtra("post_id",-1);
         if(id == -1)
         {
@@ -52,8 +53,9 @@ PostPresenter presenter;
     @Override
     public void getPostSuccess(Post post) {
         idTextView.setText(String.valueOf(post.getId()));
-        userIdTextView.setText(String.valueOf(post.getUserId());
-
+        userIdTextView.setText(String.valueOf(post.getUserId()));
+        titleTextView.setText(String.valueOf(post.getTitle()));
+        textTextView.setText(String.valueOf(post.getText()));
     }
 
 

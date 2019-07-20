@@ -13,12 +13,13 @@ public interface IPostDetailIteractor {
         void onError(String errMsg);
         //void onSuccesPostComment(List<Comment> comments);
     }
-
+/*
     interface PostDetailCommentCallBack
     {
         //void onSucces(List<Comment> comments);
         void onError(String errMsg);
     }
+    */
     void getPost(int PostId, PostDetailCallback callback);
-    void getCommentsOfPost(int posId,PostDetailCallback callback);
+   // void getCommentsOfPost(int posId,PostDetailCallback callback);
 }
