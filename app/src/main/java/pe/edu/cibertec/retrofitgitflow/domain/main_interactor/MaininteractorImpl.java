@@ -19,14 +19,17 @@ public class MaininteractorImpl implements IMaininteractor{
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if(!response.isSuccessful()){
+                    System.out.println("onResponse: !response.isSuccessful()");
                     callBack.onError("Code: " + response.code());
                 }else {
+                    System.out.println("onResponse: response.isSuccessful()");
                     callBack.onSuccess(response.body());
                 }
             }
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
+                System.out.println("onFailure");
                 callBack.onError(t.getMessage());
             }
         });

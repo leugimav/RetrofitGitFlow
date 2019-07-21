@@ -12,7 +12,7 @@ public interface IPostDetailContract {
 
     interface IPresenter{
         void attachView(IPostDetailContract.IView view);
-        void detactView();
+        void detachView();
         boolean isViewAttached();
         void getPost(int posId);
     }

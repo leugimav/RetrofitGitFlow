@@ -17,12 +17,12 @@ public class PostPresenter implements IPostDetailContract.IPresenter {
 
     @Override
     public void attachView(IPostDetailContract.IView view) {
-
+        this.view = view;
     }
 
     @Override
-    public void detactView() {
-
+    public void detachView() {
+        this.view = null;
     }
 
     @Override
@@ -38,12 +38,16 @@ public class PostPresenter implements IPostDetailContract.IPresenter {
             public void onSuccess(Post post) {
                 if(isViewAttached()) {
                     view.getPostSuccess(post);
+                    view.hideProgressBar();
                 }
             }
 
             @Override
             public void onError(String errMsg) {
-                view.showError(errMsg);
+                if(isViewAttached()) {
+                    view.showError(errMsg);
+                    view.hideProgressBar();
+                }
             }
         });
     }
